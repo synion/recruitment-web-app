@@ -7,7 +7,7 @@ This is a spec for a candidate evaluation app.
   Hint: it is usually a good idea to use a gem / working component to solve "standard" problems for a web app. In this context: https://github.com/plataformatec/devise
 
 2. Userbase consists of two types of users: regular and admin.
-  Hint: Do not overcomplicate this. Also stuff that may come handy later: https://github.com/ryanb/cancan
+  Hint: Do not overcomplicate this. Also stuff that may come handy later: https://github.com/ryanb/cancan or https://github.com/elabs/pundit
 
 3. Admins can see a trash can icon next to each user on the listing. They can click it and delete an user. Admin should not be able to delete himself/herself. The listing includes the following information: email, gender, age, interests. Requirement: Interests is a separate table. User can have many points of interest in terms of AR association defined on the model level. Hence, the interest should belong to an user.
 
