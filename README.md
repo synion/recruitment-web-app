@@ -14,7 +14,7 @@ This is a spec for a candidate evaluation app.
 4. Admin can see a link "navigate to the admin panel" somewhere on the page. He can click the link to display that page (accessible only by admins).
 
 5. In the admin panel there is a form, where an email, gender, age, points of interests can be specified for new and existing users. Requirement: the form should offer a possibility to dynamically specify the points of interest for the user, by adding additional fields to the form, without reloading the page. Each interest can have a name and a type (from the predefined collection of: ["health", "hobby", "work"]). When it comes to the number of interests, user can have any amount. New users created by admin should have a password set to "secret".
-  Hint: https://github.com/ryanb/nested_form lub https://github.com/nathanvda/cocoon
+  Hint: https://github.com/ryanb/nested_form or https://github.com/nathanvda/cocoon
 
 6. The admin panel should display a number which shows the amount of points of interests in the system of "health" type, chosen by women aged between 20 and 30, and the names of PoIs should start with "cosm". The query should be written using SQL or appriopriate DSL offered for instance by ActiveRecord. Usng Ruby for data manipualtion here is a faux pas. In other words, show me your SQL magic. Requirement: you should write a query with a subquery for this task.
 
