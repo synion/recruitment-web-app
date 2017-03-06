@@ -31,5 +31,6 @@ This is a spec for a candidate evaluation app.
 3. Implement each requirement in a separate commit. The app should work according to the spec describe in each stage. So if somebody does `git reset --hard <stage>`, he will encounter no problems with the given app version.
 4. Each stage of the app development should be presented as a pull request. You can skip this requirement, work alone and present only a final solution. However there are bonus points for showing us that you can work using PR workflow. 
 5. We love when a project has a test suite. Here is a hint: http://www.relishapp.com/rspec/rspec-rails/docs/gettingstarted
+6. The initial commit with a fresh rails application should be a separate one. In other words, do not commit the rails app code with the first requirement code. 
 
 # Good luck!
