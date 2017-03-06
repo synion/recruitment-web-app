@@ -25,7 +25,7 @@ This is a spec for a candidate evaluation app.
 9. On the user listing there should be a search_field so users should be able to scope the listing by inputing the email. Bonus points for considering SQL injections while developing the feature. Hint: https://github.com/activerecord-hackery/ransack
 
 
-## How to get started
+## How to get started aka the workflow requirements
 1. Download the repo and upload it as your own. Do not fork it.
 2. Add your evaluator as a contributor to your repository clone, so he or she can review pull requests.
 3. Implement each requirement in a separate commit. The app should work according to the spec describe in each stage. So if somebody does `git reset --hard <stage>`, he will encounter no problems with the given app version.
