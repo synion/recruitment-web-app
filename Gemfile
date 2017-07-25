@@ -18,7 +18,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg'
 gem 'devise'
 gem 'haml'
-gem 'decent_exposure'
 gem 'pundit'
 
 group :development, :test do
