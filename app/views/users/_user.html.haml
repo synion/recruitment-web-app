@@ -1,0 +1,24 @@
+%table.table.table-condensed
+  %thead
+    %tr
+      %th= t('user.columns.email')
+      %th= t('user.columns.gender')
+      %th= t('user.columns.age')
+      %th
+  %tbody
+    %tr
+      %td= user.email
+      %td= user.gender
+      %td= user.age
+      %td
+        - if current_user.admin?
+          =link_to user_path(user), { method: :delete, data: { :confirm => 'Are you sure?' },  title: t('shared.delete') } do
+            %button.btn.btn-default.index-button
+              = fa_icon "trash"
+%table
+  %thead
+    %tr
+      %th= t('user.columns.interests')
+  %tbody
+    -user.interests.each do |interest|
+      %td= interest
