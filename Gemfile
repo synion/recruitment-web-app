@@ -19,6 +19,7 @@ gem 'pg'
 gem 'devise'
 gem 'haml'
 gem 'decent_exposure'
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug', platform: :mri
