@@ -15,6 +15,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'pg'
 gem 'devise'
+gem 'haml'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -26,6 +27,7 @@ end
 group :test do
   gem 'shoulda-matchers', require: false
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'rails-controller-testing'
 end
 
