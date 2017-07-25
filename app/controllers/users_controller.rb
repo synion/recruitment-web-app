@@ -8,9 +8,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    user
     authorize user
     user.destroy
     redirect_to users_path
     flash[:danger] = "User was deleted"
+  end
+  private
+
+  def user
+    @user ||= User.find(params[:id])
   end
 end
