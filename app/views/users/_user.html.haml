@@ -12,7 +12,7 @@
       %td= user.age
       %td
         - if current_user.admin?
-          =link_to user_path(user), { method: :delete, data: { :confirm => 'Are you sure?' },  title: t('shared.delete') } do
+          =link_to user_path(user), { method: :delete, data: { :confirm => 'Are you sure?' },  title:'delete' } do
             %button.btn.btn-default.index-button
               = fa_icon "trash"
 %table
