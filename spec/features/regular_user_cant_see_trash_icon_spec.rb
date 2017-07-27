@@ -11,6 +11,5 @@ feature "RegularUserCantSeeTrashIcon", type: :feature do
   scenario do
     expect(page).to_not have_selector(:css, "i.fa-trash")
   end
-
 end
 

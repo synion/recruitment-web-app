@@ -8,9 +8,7 @@ describe UserPolicy do
 
   context 'for regular user' do
     subject { UserPolicy.new(user,check_user) }
-
     it { should_not permit(:destroy) }
-
     it { should permit(:index) }
   end
 
