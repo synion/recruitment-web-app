@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user
     authorize user
     user.destroy
     redirect_to users_path
