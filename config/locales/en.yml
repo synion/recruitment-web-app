@@ -24,3 +24,9 @@ en:
   pundit:
     user_policy:
       destroy?: You can't delete yourself
+  user:
+    columns:
+      email: EMAIL
+      gender: GENDER
+      age: AGE
+      interests: INTEREST
