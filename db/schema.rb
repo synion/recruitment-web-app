@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170725122139) do
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
     t.integer  "age"
-    t.string   "gender"
+    t.integer  "gender"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
