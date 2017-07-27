@@ -29,9 +29,11 @@ end
 
 group :test do
   gem 'shoulda-matchers', require: false
-  gem 'capybara'
+  gem 'capybara', '~> 2.14', '>= 2.14.4'
   gem 'database_cleaner'
   gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
 end
 
 group :development do
