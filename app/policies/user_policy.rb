@@ -1,6 +1,6 @@
 class UserPolicy < ApplicationPolicy
   def index?
-    user.sign_in?
+    user.present?
   end
 
   def destroy?
