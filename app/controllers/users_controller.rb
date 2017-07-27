@@ -2,9 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: :index
 
   def index
-    render locals: {
-      users:  User.all
-    }
+    render locals: { users:  User.all }
   end
 
   def destroy
@@ -13,6 +11,7 @@ class UsersController < ApplicationController
     redirect_to users_path
     flash[:danger] = "User was deleted"
   end
+
   private
 
   def user
