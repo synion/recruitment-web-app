@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   let(:user) { create :user }
 
-  describe 'GET #index with login' do
+  describe 'GET #index with login admin' do
     before { sign_in user }
     subject { get :index }
 
