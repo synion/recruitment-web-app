@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "RegularUserCantSeeTrashIcon", type: :feature do
+feature "RegularUserOperation", type: :feature do
   let!(:user) { create :user, email: "example22@o2.pl", password: "password" }
 
   background do
@@ -8,8 +8,9 @@ feature "RegularUserCantSeeTrashIcon", type: :feature do
     visit root_path
   end
 
-  scenario do
+  scenario 'not alowed information on index page' do
     expect(page).to_not have_selector(:css, "i.fa-trash")
+    expect(page).to_not have_selector('ul > li > a', text: "ADMIN")
   end
 end
 
