@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: :index
 
   def index
+    authorize current_user
     render locals: { users:  User.all }
   end
 
