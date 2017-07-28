@@ -1,0 +1,12 @@
+#wrapper
+  #sidebar-wrapper
+    %ul.sidebar-nav
+      %li.sidebar-brand
+        =link_to "ADMIN PANEL"
+      %li
+        = link_to "Back to all users", root_path
+      %li
+        = link_to "Logout", destroy_user_session_path, method: :delete
+
+= link_to "Admin menu", "#menu-toggle" , id:"menu-toggle", class:"btn btn-default"
+

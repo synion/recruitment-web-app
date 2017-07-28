@@ -4,12 +4,12 @@
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %title RecruitmentWebApp
     %meta{:name => "description", :content => "RecruitmentWebApp"}
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'admin', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
     %header
-      =render 'layouts/shared/menu'
+      =render 'layouts/shared/admin_menu'
     %main{:role => "main"}
       = render 'layouts/shared/messages'
       .container
