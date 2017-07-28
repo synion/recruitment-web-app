@@ -24,9 +24,14 @@ en:
   pundit:
     user_policy:
       destroy?: You can't delete yourself
+    dashboard_policy:
+      index?: Login as admin
   user:
     columns:
       email: EMAIL
       gender: GENDER
       age: AGE
       interests: INTEREST
+  navbar:
+    admin: ADMIN
+    admin_panel: Navigate to the admin panel
