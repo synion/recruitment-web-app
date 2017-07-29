@@ -35,7 +35,6 @@ feature 'MenageUsersByAdmin'  do
   end
 
   scenario 'admin can go to admin panel'  do
-    find('ul > li > a', text: "ADMIN").click
     find('ul > li > a', text: "Navigate to the admin panel").click
     sleep 1
     expect(page).to have_current_path(admin_path)

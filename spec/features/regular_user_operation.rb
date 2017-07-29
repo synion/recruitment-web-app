@@ -10,7 +10,7 @@ feature "RegularUserOperation", type: :feature do
 
   scenario 'not alowed information on index page' do
     expect(page).to_not have_selector(:css, "i.fa-trash")
-    expect(page).to_not have_selector('ul > li > a', text: "ADMIN")
+    expect(page).to_not have_selector('ul > li > a', text: "Navigate to the admin panel")
   end
 end
 
