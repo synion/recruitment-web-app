@@ -20,11 +20,13 @@ gem 'devise'
 gem 'haml'
 gem 'pundit'
 
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'pry'
 end
 
 group :test do
