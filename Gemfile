@@ -19,7 +19,7 @@ gem 'pg'
 gem 'devise'
 gem 'haml'
 gem 'pundit'
-
+gem "cocoon"
 
 group :development, :test do
   gem 'byebug', platform: :mri
