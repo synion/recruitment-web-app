@@ -7,13 +7,13 @@ class Admin::UsersController < Admin::BaseController
 
   def new
     authorize :user
-    @user = User.new
+    render locals: { user: User.new }
   end
 
   def create
     authorize :user
-    @user = User.create_by_admin(user_params)
-    if @user.save
+    user = User.create_by_admin(user_params)
+    if user.save
       redirect_to admin_path
     else
       render 'new'
@@ -22,7 +22,7 @@ class Admin::UsersController < Admin::BaseController
 
   def edit
     authorize :user
-    @user = User.find(params[:id])
+    render locals: { user: User.find(params[:id]) }
   end
 
   def update
@@ -38,6 +38,10 @@ class Admin::UsersController < Admin::BaseController
   private
   def user_params
     params.require(:user).permit(:email, :age, :gender, interests_attributes:[:id, :name, :type, :_destroy])
+  end
+
+  def locals(values)
+  render locals: values
   end
 end
 
