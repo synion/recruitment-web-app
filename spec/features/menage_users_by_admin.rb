@@ -38,5 +38,43 @@ feature 'MenageUsersByAdmin'  do
     find('ul > li > a', text: "Navigate to the admin panel").click
     expect(page).to have_current_path(admin_path)
   end
+
+  scenario 'admin can add new user' do
+    visit admin_users_path
+    expect{ page.to_not have_content("new_user@o2.pl")
+            page.to_not have_content('33')
+            page.to_not have_content("female")
+            page.to_not have_content("Programing")
+            page.to_not have_content("work") }
+    create_user
+    expect{ page.to have_content("new_user@o2.pl")
+            page.to have_content('33')
+            page.to have_content("female")
+            page.to have_content("Programing")
+            page.to have_content("work") }
+  end
+
+  scenario 'admin can edit new user' do
+    create_user
+    expect{ page.to have_content("new_user@o2.pl")
+            page.to have_content('33')
+            page.to have_content("female")
+            page.to have_content("Programing")
+            page.to have_content("work") }
+    edit_user
+    visit admin_users_path
+    expect{ page.to_not have_content("new_user@o2.pl")
+            page.to_not have_content('33')
+            page.to_not have_content("female")
+            page.to_not have_content("Programing")
+            page.to_not have_content("work")
+
+            page.to have_content("new13_user@o2.pl")
+            page.to have_content('13')
+            page.to have_content("male")
+            page.to have_content("Snowboarding")
+            page.to have_content("health")
+          }
+  end
 end
 
