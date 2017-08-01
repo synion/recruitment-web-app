@@ -12,5 +12,10 @@ RSpec.describe User, type: :model do
   describe 'associations' do
     it { is_expected.to have_many :interests }
   end
+
+  describe '#create_with_password' do
+    let(:user) { User.create_with_password(email: 'lola@o2.pl')}
+    it { user.valid_password?('secret').eql? true }
+  end
 end
 

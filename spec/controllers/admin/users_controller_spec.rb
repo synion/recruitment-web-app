@@ -5,6 +5,26 @@ describe Admin::UsersController, type: :controller do
   let!(:admin) { create :admin }
   let!(:user_check) { create :user, email: 'example@ppa.pl', password: 'password'  }
 
+  describe 'GET #index with login admin' do
+    before { sign_in admin }
+    subject { get :index }
+
+    it_behaves_like 'template rendering action', :index
+  end
+
+  describe 'GET #index with regular login' do
+    before { sign_in user }
+    subject { get :index }
+
+    it { is_expected.to redirect_to root_path }
+  end
+
+  describe 'GET #index with logout' do
+    subject { get :index }
+
+    it { is_expected.to redirect_to new_user_session_path }
+  end
+
   describe 'GET #new with login admin' do
     before { sign_in admin }
     subject { get :new }
@@ -27,7 +47,7 @@ describe Admin::UsersController, type: :controller do
 
    describe 'POST #create with login admin' do
     before { sign_in admin }
-    let!(:params)  {  { email: 'example@pl.pl', password: 'password' } }
+    let!(:params)  {  { email: 'example@pl.pl' } }
     subject { post :create, params: { user: params } }
 
     context 'success' do
@@ -41,14 +61,14 @@ describe Admin::UsersController, type: :controller do
 
   describe 'POST #create with regular login' do
     before { sign_in user }
-    let!(:params)  { { email: 'example@pl.pl', password: 'password' }}
+    let!(:params)  { { email: 'example@pl.pl' }}
     subject { post :create, params: { user: params }}
 
     it { is_expected.to redirect_to root_path }
   end
 
   describe 'POST #create with logout' do
-    let!(:params)  { { email: 'example@pl.pl', password: 'password' }}
+    let!(:params)  { { email: 'example@pl.pl' }}
     subject { post :create, params: { user: params }}
 
     it { is_expected.to redirect_to new_user_session_path }
