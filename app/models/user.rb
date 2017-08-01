@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :interests
+  has_many :interests, inverse_of: :user
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   enum gender: { male: 0, female: 1 }
