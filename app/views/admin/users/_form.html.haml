@@ -1,0 +1,16 @@
+=form_for @user, url: url, method: method do |f|
+  = f.label :email, "Email"
+  = f.text_field :email
+  %br
+  = f.label :age, "Age"
+  = f.number_field :age, in: 0..100, type: 'integer'
+  %br
+  = f.label :gender, "Gender"
+  = f.select :gender, User.genders.keys.to_a
+  = f.fields_for :interests do |interest|
+    = render 'interest_fields', f: interest
+  .links
+    = link_to_add_association 'add interest', f, :interests
+  %br
+  =f.submit
+

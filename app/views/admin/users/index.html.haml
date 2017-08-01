@@ -1,0 +1,12 @@
+= link_to new_admin_user_path do
+  %button.btn.btn-default
+    = "ADD USER"
+%table.table.table-hover
+  %thead
+    %tr
+      %th= t('user.columns.email')
+      %th= t('user.columns.gender')
+      %th= t('user.columns.age')
+      %th= t('user.columns.interest')
+      %th
+  = render users

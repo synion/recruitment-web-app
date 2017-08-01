@@ -1,0 +1,13 @@
+%tbody
+  %tr
+    %td= user.email
+    %td= user.gender
+    %td= user.age
+    %td
+      -user.interests.each do |interest|
+        =interest.name
+        =interest.type
+    %td
+      = link_to edit_admin_user_path(user), { title: t('shared.edit') } do
+        %button.btn.btn-default
+          = fa_icon "edit"
