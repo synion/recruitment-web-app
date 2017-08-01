@@ -12,7 +12,7 @@ class Admin::UsersController < Admin::BaseController
 
   def create
     authorize :user
-    @user = User.create_with_password(user_params)
+    @user = User.create_by_admin(user_params)
     if @user.save
       redirect_to admin_path
     else

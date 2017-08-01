@@ -6,8 +6,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :interests, reject_if: :all_blank, allow_destroy: true
 
   private
-  def self.create_with_password(attr={})
-    default_password = "secret"
-    self.create(attr.merge(password: default_password, password_confirmation: default_password))
+  def self.create_by_admin(attr)
+    self.create(attr.merge(password: "secret"))
   end
 end
