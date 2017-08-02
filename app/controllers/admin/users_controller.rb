@@ -2,7 +2,8 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     authorize :dashboard
-    locals users: User.all
+    locals ({ users: User.includes(:interests),
+              interest: Interest.number_of_interest_by_health })
   end
 
   def new

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     authorize current_user
-    render locals: { users:  User.all }
+    render locals: { users:  User.includes(:interests) }
   end
 
   def destroy
