@@ -2,12 +2,12 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     authorize :dashboard
-    render locals: { users:  User.all }
+    locals users: User.all
   end
 
   def new
     authorize :user
-    render locals: { user: User.new }
+    locals user: User.new
   end
 
   def create
@@ -22,7 +22,7 @@ class Admin::UsersController < Admin::BaseController
 
   def edit
     authorize :user
-    render locals: { user: User.find(params[:id]) }
+    locals user: User.find(params[:id])
   end
 
   def update
@@ -36,12 +36,13 @@ class Admin::UsersController < Admin::BaseController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:email, :age, :gender, interests_attributes:[:id, :name, :type, :_destroy])
   end
 
   def locals(values)
-  render locals: values
+    render locals: values
   end
 end
 
