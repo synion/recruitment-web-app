@@ -6,9 +6,7 @@ class Interest < ApplicationRecord
   private
 
     def self.number_of_interest_by_health
-      self.where('type = 0').
-      where('name Like :prefix', prefix: 'cosm%').
-      joins(:user).
-      where('age between 20 and 30 AND gender = 1').count
+      self.where("type = 0 and name like 'cosm%'").
+      where (user_id: User.where('age between 20 and 30 AND gender = 1')).count
     end
 end
