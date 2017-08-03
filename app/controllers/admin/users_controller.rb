@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::BaseController
   def index
     authorize :dashboard
     locals ({ users: User.includes(:interests),
-              interest: Interest.amount_interest_cosmhealth_young_woman })
+              interest: Interest.female_interests })
   end
 
   def new
