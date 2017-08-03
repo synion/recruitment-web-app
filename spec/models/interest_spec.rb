@@ -11,10 +11,16 @@ RSpec.describe Interest, type: :model do
     it { is_expected.to belong_to :user }
   end
 
-  describe '#number_of_interest_by_health' do
-    let(:user) { User.create_by_admin(email: 'lola@o2.pl',
-                 age: 22, gender: :female) }
-    let(:interest) { Interest.create(name: "cosmopolitan", type: :health, user: user) }
-    it { Interest.number_of_interest_by_health.eql? 1 }
+  describe '#amount_interest_cosmhealth_young_woman' do
+    let(:matching_woman) { User.create_by_admin(email: 'lola@o2.pl',
+                 age: 22, gender: :female, interests_attributes: [name: "cosmopolitan", type: :health]) }
+    let(:user1) { User.create_by_admin(email: 'lola1@o2.pl',
+                 age: 33, gender: :female, interests_attributes: [name: "cosmopolitan", type: :health]) }
+    let(:user2) { User.create_by_admin(email: 'lola2@o2.pl',
+                 age: 22, gender: :male, interests_attributes: [name: "cosmopolitan", type: :health]) }
+    let(:user3) { User.create_by_admin(email: 'lola3@o2.pl',
+                 age: 22, gender: :female, interests_attributes: [name: "coasmopolitan", type: :health]) }
+
+    it { Interest.amount_interest_cosmhealth_young_woman.eql? 1 }
   end
 end
