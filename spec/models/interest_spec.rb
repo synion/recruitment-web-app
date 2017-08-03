@@ -14,12 +14,14 @@ RSpec.describe Interest, type: :model do
   describe '#amount_interest_cosmhealth_young_woman' do
     let(:matching_woman) { User.create_by_admin(email: 'lola@o2.pl',
                  age: 22, gender: :female, interests_attributes: [name: "cosmopolitan", type: :health]) }
-    let(:user1) { User.create_by_admin(email: 'lola1@o2.pl',
+    let(:no_matching_age) { User.create_by_admin(email: 'lola1@o2.pl',
                  age: 33, gender: :female, interests_attributes: [name: "cosmopolitan", type: :health]) }
-    let(:user2) { User.create_by_admin(email: 'lola2@o2.pl',
+    let(:no_matching_gender) { User.create_by_admin(email: 'lola2@o2.pl',
                  age: 22, gender: :male, interests_attributes: [name: "cosmopolitan", type: :health]) }
-    let(:user3) { User.create_by_admin(email: 'lola3@o2.pl',
+    let(:no_maching_name) { User.create_by_admin(email: 'lola3@o2.pl',
                  age: 22, gender: :female, interests_attributes: [name: "coasmopolitan", type: :health]) }
+    let(:no_matching_type) { User.create_by_admin(email: 'lola3@o2.pl',
+                 age: 22, gender: :female, interests_attributes: [name: "coasmopolitan", type: :hobby]) }
 
     it { Interest.amount_interest_cosmhealth_young_woman.eql? 1 }
   end
