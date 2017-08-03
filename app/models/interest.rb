@@ -5,7 +5,6 @@ class Interest < ApplicationRecord
   scope :cosm_health, -> { where("type = 0 and name like 'cosm%'") }
   scope :young_woman, -> { where(user_id: User.where('age between 20 and 30 AND gender = 1')) }
 
-
   private
 
   def self.female_interests
