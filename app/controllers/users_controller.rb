@@ -3,7 +3,11 @@ class UsersController < ApplicationController
 
   def index
     authorize current_user
-    render locals: { users:  User.all }
+
+    respond_to do |format|
+      format.html { render locals: { users: User.includes(:interests) } }
+      format.csv { send_data User.to_csv, filename: "users-#{Date.today}.csv" }
+    end
   end
 
   def destroy
@@ -18,4 +22,5 @@ class UsersController < ApplicationController
   def user
     @user ||= User.find(params[:id])
   end
+
 end
