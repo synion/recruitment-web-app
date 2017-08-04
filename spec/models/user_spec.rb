@@ -17,5 +17,14 @@ RSpec.describe User, type: :model do
     let(:user) { User.create_by_admin(email: 'lola@o2.pl')}
     it { user.valid_password?('secret').eql? true }
   end
+
+  describe '#to_csv' do
+    let!(:user) { create :user , email: "salomon@o2.pl", password: "password", age: 22, gender: :male,
+                  interests_attributes: [name: "snowboarding", type: "health"] }
+    let!(:user2) { create :user , email: "salomon@o3.pl", password: "password", age: 33, gender: :female,
+                  interests_attributes: [name: "programing", type: "work"] }
+
+    it { User.to_csv.kind_of? String  }
+  end
 end
 

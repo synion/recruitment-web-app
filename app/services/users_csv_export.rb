@@ -27,6 +27,6 @@ class UsersCsvExport
   end
 
   def interest_column(user)
-    [user.interests.pluck(:name).join(";")]
+    [user.interests.pluck(:name).join("\n")]
   end
 end
