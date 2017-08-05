@@ -1,4 +1,3 @@
-require 'csv'
 class User < ApplicationRecord
   has_many :interests, inverse_of: :user
   devise :database_authenticatable, :registerable,
