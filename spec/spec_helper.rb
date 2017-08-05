@@ -22,7 +22,13 @@ require 'capybara/rails'
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+  options = Selenium::WebDriver::Chrome::Options.new
+  prefs = {
+  prompt_for_download: false,
+  default_directory: "#{Rails.root.join("tmp/downloads")}"
+  }
+  options.add_preference(:download, prefs)
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
 Capybara.javascript_driver = :chrome
@@ -53,6 +59,14 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+  end
+
+  config.after( :each ) do
+    DownloadHelpers::clear_downloads
+  end
+
+  config.before( :each ) do
+    DownloadHelpers::clear_downloads
   end
 
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
