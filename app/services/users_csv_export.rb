@@ -9,7 +9,7 @@ class UsersCsvExport
 
   def generate
     CSV.generate do |csv|
-      csv << ATTRIBUTES + ["Interests"]
+      csv << user_heading
       @users.each do |user|
         csv << user_column(user)
       end
@@ -18,12 +18,16 @@ class UsersCsvExport
 
   private
 
+  def user_heading
+    ATTRIBUTES + ["Interests"]
+  end
+
   def user_column(user)
     attribute_columns(user) + interest_column(user)
   end
 
   def attribute_columns(user)
-    ATTRIBUTES.map { |column| user.send(column) }
+    ATTRIBUTES.map { |column| user.attributes[column] }
   end
 
   def interest_column(user)
