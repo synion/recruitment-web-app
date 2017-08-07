@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
     let(:users_with_interests) { User.includes(:interests) }
 
     it "should have argument users_with_interests" do
-      users_csv_export = double("person")
+      users_csv_export = double("UsersCsvExport")
       expect(UsersCsvExport).to receive(:new).with( users_with_interests ) { users_csv_export }
       expect(users_csv_export).to receive(:generate)
 
