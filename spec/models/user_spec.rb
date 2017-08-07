@@ -21,10 +21,17 @@ RSpec.describe User, type: :model do
   describe '#to_csv' do
     let!(:user) { create :user , email: "salomon@o2.pl", password: "password", age: 22, gender: :male,
                   interests_attributes: [name: "snowboarding", type: "health"] }
+    let!(:user2) { create :user , email: "salomon@o3.pl", password: "password", age: 33, gender: :female,
+                  interests_attributes: [name: "programing", type: "work"] }
     let(:users_with_interests) { User.includes(:interests) }
-    let(:csv) { UsersCsvExport.new(users_with_interests).generate }
 
-    it { (User.to_csv).eql? csv }
+    it "should have argument users_with_interests" do
+      users_csv_export = double("person")
+      expect(UsersCsvExport).to receive(:new).with( users_with_interests ) { users_csv_export }
+      expect(users_csv_export).to receive(:generate)
+
+      User.to_csv
+    end
   end
 end
 
