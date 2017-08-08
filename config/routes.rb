@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     get '', to: 'dashboard#index', as: '/'
     resources :users, except: [:show,:destroy]
   end
+
+  resources :regard_mailer, only: [:create], as: :send_regard
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
