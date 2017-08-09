@@ -1,3 +1,4 @@
+= render 'search_field', q: q
 = render users
 = link_to "Export to CSV", users_path(format: :csv, locals: { users: users })
 

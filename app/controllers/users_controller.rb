@@ -5,7 +5,8 @@ class UsersController < ApplicationController
     authorize current_user
 
     respond_to do |format|
-      format.html { render locals: { users: User.includes(:interests) } }
+      format.html { render locals: { users: q.result(distinct: true).includes(:interests),
+                                     q: User.ransack(params[:q]) } }
       format.csv { send_data User.to_csv, filename: "users-#{Date.today}.csv" }
     end
   end
@@ -18,6 +19,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def q
+    @q ||= User.includes(:interests).ransack(params[:q])
+  end
 
   def user
     @user ||= User.find(params[:id])

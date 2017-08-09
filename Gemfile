@@ -20,6 +20,7 @@ gem 'devise'
 gem 'haml'
 gem 'pundit'
 gem "cocoon"
+gem 'ransack', '~> 1.8', '>= 1.8.3'
 
 group :development, :test do
   gem 'byebug', platform: :mri
