@@ -1,9 +1,9 @@
 class Admin::UsersController < Admin::BaseController
-
   def index
     authorize :dashboard
-    locals ({ users: User.includes(:interests),
-              interest: Interest.female_interests })
+    locals(
+      users: User.includes(:interests), interest: Interest.female_interests
+    )
   end
 
   def new
@@ -39,11 +39,13 @@ class Admin::UsersController < Admin::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:email, :age, :gender, interests_attributes:[:id, :name, :type, :_destroy])
+    params.require(:user).permit(
+      :email, :age, :gender,
+      interests_attributes: %i[id name type _destroy]
+    )
   end
 
   def locals(values)
     render locals: values
   end
 end
-

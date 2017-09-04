@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: [:index, :destroy]
+  resources :users, only: %i[index destroy]
   root 'users#index'
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'
-    resources :users, except: [:show,:destroy]
+    resources :users, except: %i[show destroy]
   end
 
   resources :regard_mailer, only: [:create], as: :send_regard

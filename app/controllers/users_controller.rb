@@ -5,8 +5,10 @@ class UsersController < ApplicationController
     authorize current_user
 
     respond_to do |format|
-      format.html { render locals: { users: q.result(distinct: true).includes(:interests),
-                                     q: User.ransack(params[:q]) } }
+      format.html do
+        render locals: { users: q.result(distinct: true).includes(:interests),
+                         q: User.ransack(params[:q]) }
+      end
       format.csv { send_data User.to_csv, filename: "users-#{Date.today}.csv" }
     end
   end
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
     authorize user
     user.destroy
     redirect_to users_path
-    flash[:danger] = "User was deleted"
+    flash[:danger] = 'User was deleted'
   end
 
   private

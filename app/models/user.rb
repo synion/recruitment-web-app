@@ -10,6 +10,6 @@ class User < ApplicationRecord
   end
 
   def self.create_by_admin(attr)
-    self.create(attr.merge(password: 'secret'))
+    create(attr.merge(password: 'secret'))
   end
 end

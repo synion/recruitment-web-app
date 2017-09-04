@@ -8,9 +8,11 @@ AllCops:
     - spec/support/**/*
     - spec/spec_helper.rb
     - spec/rails_helper.rb
+    - db/migrate/**
+    - config/spring.rb
 Metrics/ModuleLength:
   Exclude:
-    - "**/*_spec.rb"
+    - '**/*_spec.rb'
     - spec/features/menage_users_by_admin.rb
     - spec/features/admin_and_user_export_users_csv.rb
 Metrics/BlockLength:
@@ -19,4 +21,9 @@ Metrics/BlockLength:
     - spec/features/menage_users_by_admin.rb
     - spec/features/admin_and_user_export_users_csv.rb
 Metrics/LineLength:
+  Exclude:
+    - 'config/initializers/*.rb'
+    - 'config/environments/production.rb'
   Max: 100
+Documentation:
+  Enabled: false  

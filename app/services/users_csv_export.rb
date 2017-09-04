@@ -1,7 +1,7 @@
 require 'csv'
 
 class UsersCsvExport
-  ATTRIBUTES = %w{email age gender}
+  ATTRIBUTES = %w[email age gender].freeze
 
   def initialize(users)
     @users = users
@@ -19,7 +19,7 @@ class UsersCsvExport
   private
 
   def user_heading
-    ATTRIBUTES + ["Interests"]
+    ATTRIBUTES + ['Interests']
   end
 
   def user_column(user)
