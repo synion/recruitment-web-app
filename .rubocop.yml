@@ -10,6 +10,7 @@ AllCops:
     - spec/rails_helper.rb
     - db/migrate/**
     - config/spring.rb
+    - Gemfile
 Metrics/ModuleLength:
   Exclude:
     - '**/*_spec.rb'
@@ -26,4 +27,4 @@ Metrics/LineLength:
     - 'config/environments/production.rb'
   Max: 100
 Documentation:
-  Enabled: false  
+  Enabled: false

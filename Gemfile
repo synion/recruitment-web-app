@@ -19,7 +19,7 @@ gem 'pg'
 gem 'devise'
 gem 'haml'
 gem 'pundit'
-gem "cocoon"
+gem 'cocoon'
 gem 'ransack', '~> 1.8', '>= 1.8.3'
 
 group :development, :test do
@@ -47,4 +47,4 @@ group :development do
   gem 'rubocop', '~> 0.49.1', require: false
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
