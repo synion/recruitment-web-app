@@ -9,7 +9,8 @@ RSpec.describe RegardMailer, type: :mailer do
     let(:mail) do
       RegardMailer.send_regard(
         user_email: user.email,
-        current_user_email: current_user.email)
+        current_user_email: current_user.email
+      )
     end
     it 'renders the headers' do
       expect(mail.to).to eq([user.email])
@@ -27,5 +28,4 @@ RSpec.describe RegardMailer, type: :mailer do
       expect(mail.to).to_not eq([current_user.email])
     end
   end
-
 end

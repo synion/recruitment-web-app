@@ -8,3 +8,15 @@ AllCops:
     - spec/support/**/*
     - spec/spec_helper.rb
     - spec/rails_helper.rb
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+    - spec/features/menage_users_by_admin.rb
+    - spec/features/admin_and_user_export_users_csv.rb
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+    - spec/features/menage_users_by_admin.rb
+    - spec/features/admin_and_user_export_users_csv.rb
+Metrics/LineLength:
+  Max: 100

@@ -21,19 +21,19 @@ RSpec.describe User, type: :model do
   describe '#to_csv' do
     let!(:user) do
       create :user,
-      email: 'salomon@o2.pl',
-      password: 'password',
-      age: 22,
-      gender: :male,
-      interests_attributes: [name: 'snowboarding', type: 'health']
+             email: 'salomon@o2.pl',
+             password: 'password',
+             age: 22,
+             gender: :male,
+             interests_attributes: [name: 'snowboarding', type: 'health']
     end
     let!(:user2) do
       create :user,
-      email: 'salomon@o3.pl',
-      password: 'password',
-      age: 33,
-      gender: :female,
-      interests_attributes: [name: 'programing', type: 'work']
+             email: 'salomon@o3.pl',
+             password: 'password',
+             age: 33,
+             gender: :female,
+             interests_attributes: [name: 'programing', type: 'work']
     end
     let(:users_with_interests) { User.includes(:interests) }
 

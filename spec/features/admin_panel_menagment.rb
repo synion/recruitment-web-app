@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-feature 'admin panel menagment'  do
-
+feature 'admin panel menagment' do
   background do
     sign_in_admin
     visit admin_path

@@ -13,21 +13,27 @@ RSpec.describe Interest, type: :model do
 
   describe '#female_interests' do
     let(:matching_woman) do
-      User.create_by_admin(email: 'lola@o2.pl',
-      age: 22, gender: :female,
-      interests_attributes: [name: 'cosmopolitan', type: :health])
+      User.create_by_admin(
+        email: 'lola@o2.pl',
+        age: 22, gender: :female,
+        interests_attributes: [name: 'cosmopolitan', type: :health]
+      )
     end
 
     let(:no_matching_age) do
-      User.create_by_admin(email: 'lola1@o2.pl',
-      age: 33, gender: :female,
-      interests_attributes: [name: 'cosmopolitan', type: :health])
+      User.create_by_admin(
+        email: 'lola1@o2.pl',
+        age: 33, gender: :female,
+        interests_attributes: [name: 'cosmopolitan', type: :health]
+      )
     end
 
     let(:no_matching_gender) do
-      User.create_by_admin(email: 'lola2@o2.pl',
-      age: 22, gender: :male,
-      interests_attributes: [name: 'cosmopolitan', type: :health])
+      User.create_by_admin(
+        email: 'lola2@o2.pl',
+        age: 22, gender: :male,
+        interests_attributes: [name: 'cosmopolitan', type: :health]
+      )
     end
 
     let(:no_maching_name) do
