@@ -5,3 +5,6 @@ AllCops:
     - lib/**/*.rake
   Exclude:
     - db/schema.rb
+    - spec/support/**/*
+    - spec/spec_helper.rb
+    - spec/rails_helper.rb

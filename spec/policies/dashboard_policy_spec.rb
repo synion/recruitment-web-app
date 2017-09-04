@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe DashboardPolicy do
-
   let(:admin) { create :admin }
   let(:user) { create :user }
 
