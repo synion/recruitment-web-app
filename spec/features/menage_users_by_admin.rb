@@ -81,7 +81,7 @@ feature 'MenageUsersByAdmin'  do
   scenario 'admin see how many woman interest health in 20 to 30 age ' do
     visit admin_users_path
     expect(page).to have_content("Amout of women in age 20 to 30 interested: 0")
-    create_user_with_cosm
+    create_user_cosm
     visit admin_users_path
     expect(page).to have_content("Amout of women in age 20 to 30 interested: 1")
   end
